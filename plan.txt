@@ -1,0 +1,24 @@
+färger visas i 3d som punkter - kan flyttas - kan raderas - klickas ut
+
+recent colors
+- 2d: kvarts vattenhjul som apple tidväljare - horisontell 
+- 3d: visas som halvtransparanta punkter 
+
+pallet previev
+	visar färger från gradient tool eller enskillda utplacerade
+	hex koder för kopiering
+
+gradient tool
+	två punklter med n mellanfärger
+	läge för quad besier (en kontrollpunkt) som matematiskt är dubbelt så långt bort från de första tvås medelpunkt så att den praktiska punkten har besierlinjen igenom sig
+	visas i pallet previev
+
+
+window controll Class
+	alla UI är innuti en respektive window
+	window kan öpnna/stängas, flyttas runt, ändra storlek/dimentione
+
+
+csg-skär-manupuilation
+	snap to camera on/off
+	djup med scrollhjul (ev ctrl)

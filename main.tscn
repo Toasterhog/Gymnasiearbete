@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bag4o5fk4uaq3"]
+
+[ext_resource type="Shader" uid="uid://dmtx7q3f71qp5" path="res://3D/hsv_cyl.gdshader" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bgrlx7l7rkhee" path="res://3D/camera.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bjdw5vx10qebj" path="res://3D/slicer.gd" id="3_h2yge"]
+
+[sub_resource type="Environment" id="Environment_7dm0k"]
+background_mode = 1
+background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+ambient_light_source = 1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ig7tw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+render_priority = 0
+shader = ExtResource("1_0xm2m")
+
+[node name="main" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7dm0k")
+camera_attributes = SubResource("CameraAttributesPractical_ig7tw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+script = ExtResource("2_h2yge")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("ShaderMaterial_1bvp3")
+operation = 2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+radius = 1.0
+sides = 32
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+operation = 2
+size = Vector3(10, 10, 3)
+script = ExtResource("3_h2yge")
