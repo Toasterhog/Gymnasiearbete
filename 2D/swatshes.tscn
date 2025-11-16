@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkvb7x2omgc01"]
+
+[ext_resource type="Script" uid="uid://dt20mc5xcukh1" path="res://2D/swatshes.gd" id="1_e74qd"]
+[ext_resource type="StyleBox" uid="uid://p0se1jdfwwc5" path="res://2D/style/swatshes_LE.tres" id="2_dadys"]
+[ext_resource type="StyleBox" uid="uid://b1wjgot2b7q3l" path="res://2D/style/swatshes_expand_normal.tres" id="2_mt703"]
+[ext_resource type="Script" uid="uid://b2w6y3d8416br" path="res://2D/swatch.gd" id="2_uw433"]
+[ext_resource type="StyleBox" uid="uid://nvn1ax6x3u5b" path="res://2D/style/swatshes_expand_hover.tres" id="3_0fc6n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oqbj"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.898039, 0.560784, 0, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_left = 15
+
+[node name="swatshes" type="Panel"]
+custom_minimum_size = Vector2(230, 81)
+offset_right = 230.0
+offset_bottom = 81.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1oqbj")
+script = ExtResource("1_e74qd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+text = "Swatches"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_uneditable_color = Color(0.899258, 0.899258, 0.899258, 1)
+theme_override_styles/read_only = ExtResource("2_dadys")
+text = "#000000"
+alignment = 1
+editable = false
+expand_to_text_length = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "show more"
+focus_mode = 0
+theme_override_styles/focus = ExtResource("2_mt703")
+theme_override_styles/hover_pressed = ExtResource("3_0fc6n")
+theme_override_styles/hover = ExtResource("3_0fc6n")
+theme_override_styles/pressed = ExtResource("2_mt703")
+theme_override_styles/normal = ExtResource("2_mt703")
+toggle_mode = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 43.0
+offset_right = -33.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+draw_focus_border = true
+horizontal_scroll_mode = 4
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Swatch" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.193383, 0.472747, 0.365556, 1)
+script = ExtResource("2_uw433")
+metadata/_custom_type_script = "uid://b2w6y3d8416br"
+
+[node name="Swatch2" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.123223, 0.348099, 0.593153, 1)
+script = ExtResource("2_uw433")
+metadata/_custom_type_script = "uid://b2w6y3d8416br"
+
+[node name="Swatch3" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.733188, 0.27922, 0.268406, 1)
+script = ExtResource("2_uw433")
+metadata/_custom_type_script = "uid://b2w6y3d8416br"
+
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="resize"]

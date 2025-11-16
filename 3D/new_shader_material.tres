@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dr88dcmppkp7b"]
+
+[ext_resource type="Shader" uid="uid://cna5g8mrf5mbh" path="res://3D/marker_shader_material.gdshader" id="1_ui05b"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ui05b")
+shader_parameter/col = Vector3(0, 0, 0)
