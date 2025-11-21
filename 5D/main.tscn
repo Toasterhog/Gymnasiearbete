@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://bag4o5fk4uaq3"]
+
+[ext_resource type="Script" uid="uid://bw4jjyavl2qpg" path="res://5D/main.gd" id="1_2icd5"]
+[ext_resource type="PackedScene" uid="uid://bkvb7x2omgc01" path="res://2D/pallet_window.tscn" id="2_y1sj6"]
+[ext_resource type="Theme" uid="uid://t7o8cvmdq1rp" path="res://2D/style/my_theme.tres" id="3_vsvkh"]
+[ext_resource type="Script" uid="uid://bgrlx7l7rkhee" path="res://3D/camera.gd" id="4_t5k4w"]
+[ext_resource type="Shader" uid="uid://dmtx7q3f71qp5" path="res://3D/hsv_cyl.gdshader" id="5_3plne"]
+[ext_resource type="Script" uid="uid://bjdw5vx10qebj" path="res://3D/slicer.gd" id="6_6eams"]
+[ext_resource type="Script" uid="uid://c4qwopsrdr5kb" path="res://3D/raycastthingy.gd" id="7_gudrx"]
+[ext_resource type="Script" uid="uid://wbrd1kfk3b4w" path="res://5D/hub.gd" id="8_oa0x8"]
+
+[sub_resource type="Environment" id="Environment_7dm0k"]
+background_mode = 1
+background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+ambient_light_source = 1
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ig7tw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+render_priority = 0
+shader = ExtResource("5_3plne")
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_2icd5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pallet_window" parent="CanvasLayer/Control" instance=ExtResource("2_y1sj6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = -117.0
+offset_right = 274.0
+offset_bottom = -36.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 39.0
+offset_top = 34.0
+offset_right = -282.0
+offset_bottom = 213.0
+theme = ExtResource("3_vsvkh")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+edit_alpha = false
+color_mode = 1
+picker_shape = 4
+color_modes_visible = false
+presets_visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7dm0k")
+camera_attributes = SubResource("CameraAttributesPractical_ig7tw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+script = ExtResource("4_t5k4w")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("ShaderMaterial_1bvp3")
+operation = 2
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+radius = 1.0
+sides = 32
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+operation = 2
+size = Vector3(10, 10, 3)
+script = ExtResource("6_6eams")
+
+[node name="raycastthingy" type="Node3D" parent="."]
+script = ExtResource("7_gudrx")
+
+[node name="hub" type="Node" parent="."]
+script = ExtResource("8_oa0x8")

@@ -1,24 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkvb7x2omgc01"]
 
-[ext_resource type="Script" uid="uid://dt20mc5xcukh1" path="res://2D/swatshes.gd" id="1_e74qd"]
+[ext_resource type="Script" uid="uid://dt20mc5xcukh1" path="res://2D/pallet_window.gd" id="1_e74qd"]
+[ext_resource type="StyleBox" uid="uid://dd6gseki7ql1c" path="res://2D/style/panel.tres" id="1_rnpl8"]
 [ext_resource type="StyleBox" uid="uid://p0se1jdfwwc5" path="res://2D/style/swatshes_LE.tres" id="2_dadys"]
 [ext_resource type="StyleBox" uid="uid://b1wjgot2b7q3l" path="res://2D/style/swatshes_expand_normal.tres" id="2_mt703"]
 [ext_resource type="Script" uid="uid://b2w6y3d8416br" path="res://2D/swatch.gd" id="2_uw433"]
 [ext_resource type="StyleBox" uid="uid://nvn1ax6x3u5b" path="res://2D/style/swatshes_expand_hover.tres" id="3_0fc6n"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oqbj"]
-bg_color = Color(0.114897, 0.114897, 0.114897, 1)
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.898039, 0.560784, 0, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_left = 15
-
-[node name="swatshes" type="Panel"]
-custom_minimum_size = Vector2(230, 81)
-offset_right = 230.0
+[node name="pallet_window" type="Panel"]
+custom_minimum_size = Vector2(245, 81)
+offset_right = 245.0
 offset_bottom = 81.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1oqbj")
+theme_override_styles/panel = ExtResource("1_rnpl8")
 script = ExtResource("1_e74qd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -48,6 +41,7 @@ expand_to_text_length = true
 context_menu_enabled = false
 emoji_menu_enabled = false
 virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="Button" type="Button" parent="HBoxContainer"]

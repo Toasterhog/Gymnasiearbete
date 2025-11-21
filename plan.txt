@@ -22,3 +22,8 @@ window controll Class
 csg-skär-manupuilation
 	snap to camera on/off
 	djup med scrollhjul (ev ctrl)
+
+gradient fönster (en gradient i taget)
+	swatches [nu ändras: hex] - standard colorpicker
+	colorpicker -> rgb ->hsv ->vry ->xyz
+	3dpunkt får outline
