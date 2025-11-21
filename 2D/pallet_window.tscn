@@ -73,24 +73,24 @@ draw_focus_border = true
 horizontal_scroll_mode = 4
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+[node name="SwatchContainer" type="HBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
-[node name="Swatch" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+[node name="Swatch" type="ColorRect" parent="ScrollContainer/SwatchContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.193383, 0.472747, 0.365556, 1)
 script = ExtResource("2_uw433")
 metadata/_custom_type_script = "uid://b2w6y3d8416br"
 
-[node name="Swatch2" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+[node name="Swatch2" type="ColorRect" parent="ScrollContainer/SwatchContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.123223, 0.348099, 0.593153, 1)
 script = ExtResource("2_uw433")
 metadata/_custom_type_script = "uid://b2w6y3d8416br"
 
-[node name="Swatch3" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+[node name="Swatch3" type="ColorRect" parent="ScrollContainer/SwatchContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 color = Color(0.733188, 0.27922, 0.268406, 1)

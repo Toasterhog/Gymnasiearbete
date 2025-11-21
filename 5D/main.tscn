@@ -46,10 +46,10 @@ offset_bottom = -36.0
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.5
+anchor_right = 0.217
 offset_left = 39.0
 offset_top = 34.0
-offset_right = -282.0
+offset_right = 44.016
 offset_bottom = 213.0
 theme = ExtResource("3_vsvkh")
 
@@ -95,5 +95,7 @@ script = ExtResource("6_6eams")
 [node name="raycastthingy" type="Node3D" parent="."]
 script = ExtResource("7_gudrx")
 
-[node name="hub" type="Node" parent="."]
+[node name="Hub" type="Node" parent="." node_paths=PackedStringArray("pallet_window")]
 script = ExtResource("8_oa0x8")
+pallet_window = NodePath("../CanvasLayer/Control/pallet_window")
+metadata/_custom_type_script = "uid://wbrd1kfk3b4w"

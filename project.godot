@@ -15,6 +15,10 @@ run/main_scene="uid://bag4o5fk4uaq3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AutoloadTransFuncs="*res://5D/autoload_trans_funcs.gd"
+
 [display]
 
 window/energy_saving/keep_screen_on=false
@@ -24,7 +28,6 @@ window/stretch/aspect="expand"
 [gui]
 
 theme/custom_font="uid://vbqjm4f16qfr"
-
 
 [input]
 
