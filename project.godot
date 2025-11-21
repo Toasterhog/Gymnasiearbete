@@ -18,10 +18,13 @@ config/icon="res://icon.svg"
 [display]
 
 window/energy_saving/keep_screen_on=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [gui]
 
 theme/custom_font="uid://vbqjm4f16qfr"
+
 
 [input]
 
